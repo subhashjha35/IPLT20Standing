@@ -13,7 +13,7 @@ except ImportError:
 
 app = Flask(__name__)
 
-@app.route('/api/v1/pointstable', methods=['GET'])
+@app.route('/', methods=['GET'])
 def create_todo():
   session=requests.Session()
   
@@ -42,5 +42,5 @@ def create_todo():
   print(output)
   return make_response(jsonify({"result": output}), 200)
 
-# run_with_ngrok(app)
-app.run()
+if __name__ == '__main__':
+    app.run(port=5000)
